@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://portal.pingseguro.com.br/sitemap.xml
