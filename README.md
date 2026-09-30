@@ -19,7 +19,23 @@ popup/
   tracking.js                 GA4 + Meta Pixel + eventos
   popup.js/.css               Pop-up de saída (captura de lead)
 assets/                       Imagens e logos
+tools/build-standalone.py     Gera dist/protege-voce.html (arquivo único)
+dist/protege-voce.html        Landing em arquivo único, otimizada
 ```
+
+## Versão em arquivo único (para o fornecedor)
+
+`dist/protege-voce.html` é a landing em **um só arquivo**: CSS e JS dos cookies, do pop-up e do rastreamento embutidos, e as imagens redimensionadas, convertidas para WebP e embutidas (~410 KB no total). Fontes (Google Fonts) e ícones (Font Awesome) carregam de CDN, sem bloquear a renderização.
+
+Para gerar de novo depois de mudar o site (precisa de Python e `pip install pillow`):
+
+```bash
+python tools/build-standalone.py
+# se o checkout e a política ficarem em outro endereço:
+python tools/build-standalone.py --checkout-url https://SEU-DOMINIO/checkout/index.html                                  --privacy-url  https://SEU-DOMINIO/politica-de-privacidade.html
+```
+
+Sem esses parâmetros, os botões "Contratar agora" apontam para `./checkout/index.html` e a política para `politica-de-privacidade.html` (relativos). O checkout é outro conjunto de páginas e não entra no arquivo único.
 
 ## Rastreamento
 
