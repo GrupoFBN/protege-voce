@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protege Você Obrigado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .message-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--background);
+        }
+
+        .message-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+        }
+
+        .message-card {
+            background-color: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            max-width: 32rem;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @media(min-width: 640px) {
+            .message-card {
+                padding: 3rem;
+            }
+        }
+
+        .icon-wrapper {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .icon-success {
+            background-color: hsla(150, 60%, 42%, 0.1);
+            color: var(--success);
+        }
+
+        .icon-success i {
+            width: 2.25rem;
+            height: 2.25rem;
+        }
+
+        .message-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--card-foreground);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        @media(min-width: 640px) {
+            .message-title {
+                font-size: 1.875rem;
+            }
+        }
+
+        .message-subtitle {
+            color: var(--muted-foreground);
+            margin-bottom: 0.5rem;
+        }
+
+        .proposal-num {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-box {
+            background-color: var(--muted);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: left;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+        }
+
+        .summary-label {
+            color: var(--muted-foreground);
+        }
+
+        .summary-value {
+            font-weight: 600;
+            color: var(--card-foreground);
+        }
+
+        .action-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #002C5C, #2BA9E0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mark svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+        }
+
+        .logo-text strong {
+            font-size: 1rem;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--muted-foreground);
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="message-container">
+        <header class="app-header">
+            <div class="header-content">
+                <a href="../index.html" class="logo-link">
+                    <img src="../assets/8a1b7be0-4480-4a2e-be57-4271719ffb15.webp" alt="Protege Você" class="logo-img">
+                </a>
+            </div>
+        </header>
+
+        <main class="message-main">
+            <div class="message-card">
+                <div class="icon-wrapper icon-success">
+                    <i data-lucide="check-circle"></i>
+                </div>
+
+                <h1 class="message-title">Parabéns, sua proteção está ativa!</h1>
+                <p class="message-subtitle">Sua contratação do Protege Você foi registrada.</p>
+                <p class="proposal-num">Proposta <span id="lbl-proposal">PV 000000</span> criada.</p>
+
+                <div class="summary-box">
+                    <div class="summary-row">
+                        <span class="summary-label">Plano</span>
+                        <span class="summary-value" id="lbl-plan">Conforto - Cobertura completa para seus pertences e cartões</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Valor mensal</span>
+                        <span class="summary-value" id="lbl-price">R$ 0,00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Forma de pagamento</span>
+                        <span class="summary-value" id="lbl-installments">R$ 5,90 por mês</span>
+                    </div>
+                </div>
+
+                <div class="action-stack">
+                    <a class="btn btn-primary icon-btn" href="../index.html">
+                        <i data-lucide="home" class="btn-icon"></i>
+                        <span>Voltar ao site</span>
+                    </a>
+                    <a class="btn btn-outline" href="https://wa.me/5511947164230?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20meu%20Protege%20Voc%C3%AA">
+                        Falar com atendimento
+                    </a>
+                </div>
+
+                <div class="footer-note">
+                    <i data-lucide="phone" style="width:1rem;height:1rem;"></i>
+                    <span>Atendimento: (11) 94716-4230</span>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2026 Protege Você. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const saved = localStorage.getItem('protege-checkout');
+        if (saved) {
+            try {
+                const state = JSON.parse(saved);
+                if (state.plan) {
+                    const planLabel = state.plan.subtitle ? `${state.plan.name} - ${state.plan.subtitle}` : (state.plan.name || 'Protege Você');
+                    document.getElementById('lbl-plan').innerText = planLabel;
+                    document.getElementById('lbl-price').innerText = `R$ ${state.plan.price.toFixed(2).replace('.', ',')}`;
+
+                    let val = state.plan.price.toFixed(2).replace('.', ',');
+                    let parcelasLabel = `R$ ${val} por mês`;
+
+                    document.getElementById('lbl-installments').innerText = parcelasLabel;
+                }
+
+                let proposta = state.proposalNumber || ('PV ' + Math.floor(100000 + Math.random() * 900000));
+                proposta = String(proposta).replace(/^PV\W*/, 'PV ');
+                document.getElementById('lbl-proposal').innerText = proposta;
+
+            } catch (e) { }
+        } else {
+            document.getElementById('lbl-plan').innerText = 'Conforto - Cobertura completa para seus pertences e cartões';
+            document.getElementById('lbl-price').innerText = 'R$ 5,90';
+            document.getElementById('lbl-installments').innerText = 'R$ 5,90 por mês';
+        }
+    </script>
+    <script>
+    window.PV_POPUP_CONFIG = {
+      product: 'protege_voce',
+      webhookUrl: 'https://n8n.grupofbn.com.br/webhook/popup-protege',
+      ga4Id: 'G-ZCC1RMGQSM',
+      metaPixelId: '1475604171156644',
+      privacyUrl: '../politica-de-privacidade.html',
+      blockedPaths: ['/obrigado', '/erro.html', '/sucesso', '/confirmacao']
+    };
+    </script>
+    <link rel="stylesheet" href="../popup/popup.css">
+    <link rel="stylesheet" href="../popup/cookie-banner.css">
+    <script src="../popup/pv-global.js"></script>
+    <script src="../popup/cookie-banner.js"></script>
+    <script src="../popup/tracking.js"></script>
+    <script src="../popup/popup.js"></script>
+    <script>
+    window.addEventListener('load', function () {
+      try {
+        var st = JSON.parse(localStorage.getItem('protege-checkout') || '{}');
+        var prop = st.proposalNumber || '';
+        var key = 'pv_purchase_' + prop;
+        if (!st.plan || !prop || sessionStorage.getItem(key)) return;
+        sessionStorage.setItem(key, '1');
+        if (window.PVTracking) PVTracking.track('purchase',
+          { transaction_id: prop, plan_id: st.planId, value: st.plan.price, currency: 'BRL' },
+          'Purchase', { content_ids: [st.planId], content_type: 'product', value: st.plan.price, currency: 'BRL' });
+      } catch (e) {}
+    });
+    </script>
+</body>
+
+</html>
